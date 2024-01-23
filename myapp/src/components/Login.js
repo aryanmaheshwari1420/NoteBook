@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
+
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const navigate = useNavigate();  // Updated hook
@@ -22,8 +24,8 @@ const Login = (props) => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem('token', json.authtoken);
-      navigate('/');  // Updated navigation
       props.showalert("Logged In Successfully","success")
+      navigate('/');  // Updated navigation
 
     } else {
       props.showalert("Details are not Correct Please try again !","danger")
