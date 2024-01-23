@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import noteContext from "../context/notes/NoteContext";
 import NoteItem from "./NoteItem";
 import AddNote from "./Addnote";
-const Notes = () => {
+const Notes = (props) => {
   const context = useContext(noteContext);
   const { notes, getNotes, editNote } = context;
   useEffect(() => {
@@ -31,6 +31,8 @@ const Notes = () => {
   const handleClick = (e) => {
     editNote(note.id, note.etitle, note.edescription, note.etag);
     refClose.current.click();
+    props.showalert("Update donal opened", "success");
+
   };
 
   const onChange = (e) => {
@@ -39,7 +41,7 @@ const Notes = () => {
 
   return (
     <>
-      <AddNote />
+      <AddNote  showalert={showalert}/>
       <button
         ref={ref}
         type="button"
@@ -143,7 +145,7 @@ const Notes = () => {
         <h2>Your Notes</h2>
         {Array.isArray(notes) ? (
           notes.map((note) => (
-            <NoteItem key={note._id} updateNote={updateNote} note={note} />
+            <NoteItem key={note._id} updateNote={updateNote} note={note} showalert={showalert} />
           ))
         ) : (
           <p>No notes available</p>
