@@ -47,7 +47,7 @@ const NoteState = (props) => {
         "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVhZDQ2ZTBhOWMwOTcxMjdlMDU1NzA5In0sImlhdCI6MTcwNTg1NDY4OH0.W6yIxGfG_EYQRXgfROMBPqg3JLIHepNx3ZJqBsJlEE8"
       }
     });
-    const json = response.json();
+    console.log(response);
 
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
@@ -64,7 +64,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({title, description, tag})
     });
-    const json = await response.json();
+    console.log(response);
 
      let newNotes = JSON.parse(JSON.stringify(notes))
     // Logic to edit in client
