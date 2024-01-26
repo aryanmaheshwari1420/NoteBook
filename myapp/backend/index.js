@@ -6,7 +6,7 @@ const app = express()
 const port = 5000
 app.use(cors(
   {
-    origin:["https://note-book-onhand.vercel.app/"],
+    origin:[""],
     methods:['POST','GET','PUT','DELETE'],
     credentials:true
   }
