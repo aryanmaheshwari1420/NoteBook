@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
 // const mongoURI = "mongodb://localhost:27017/notebook";
-const mongoURI = "mongodb+srv://aryanmaheshwari1420:notebookhaiye@cluster0.iyd729h.mongodb.net/notebook";
+require('dotenv').config();
+const mongoURI = process.env.MONGO_URL;
 
 
 const connectToMongo = async () => {
