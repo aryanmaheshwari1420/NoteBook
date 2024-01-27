@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 const Signup = (props) => {
-  // const host = "http://localhost:3000";
+  const host = "https://note-onhand.onrender.com";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -22,7 +22,7 @@ const Signup = (props) => {
       return;
     }
 
-    const response = await fetch(`/api/auth/createuser`, {
+    const response = await fetch(`${host}/api/auth/createuser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
