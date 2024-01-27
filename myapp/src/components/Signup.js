@@ -21,7 +21,7 @@ const Signup = (props) => {
       return;
     }
 
-    const response = await fetch("https://note-book-onhand.vercel.app/api/auth/createuser", {
+    const response = await fetch("/api/auth/createuser", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
